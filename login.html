@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login Page</title>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- The main login landing page -->
+    <div class="login-container">
+        <div class="image-section">
+            <!-- landing page left side image -->
+            <img src="images/landiing-page-img.png" alt="Background Image">
+        </div>
+
+        <!-- landing page right side content -->
+        <div class="content-section">
+            <h1>Dream, build, and transform with Workflow+</h1>
+            <p>Workflow+ Platform, is a suite of cloud service that provide tools to optimize your business process and
+                digitalize your assets. We'll handle the infrastructure, app runtimes
+                and dependencies, so that you can push code to production in just a few clicks.</p>
+            <h2>WorkFlow+ で実現したいことを構築し、 変革する</h2>
+            <p>露物ばげラる員権わ発株まの会病5索量盤病わ。陣コ少任ラ律5愛ふつ著広コタソ要道リケラス初部声ハセ嘆出やざ阜紙ほぶ資辺チアフノ掲統サハト京新さぼす毎挙乗マナソユ可給経サヨルキ字要ネヲ船素概骨ねぴげ。</p>
+
+            <!-- Login button -->
+            <div class="lg-btn">
+                <button class="login-button">Login/ログイン</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- The Login box (pop-up) (model-box)-->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+
+            <!-- Close Button -->
+            <span class="close" id="closeBtn">&times;</span>
+
+            <!-- model left side image -->
+            <div class="modal-left">
+                <img src="images/login-box-img-1.png" alt="Login Image">
+            </div>
+
+            <!-- model right side content -->
+            <div class="modal-right">
+                <h2>Login/ログイン</h2>
+                <div class="login-selection">
+                    <span id="signupOption" class="active-option">Sign Up</span> /
+                    <span id="loginOption">Login</span> /
+                    <span id="ontimeOption">Onetime</span>
+                </div>
+
+                <!-- Model Signup form -->
+                <div class="modal-form-container signup-form-container" id="signupFormContainer">
+                    <form class="signup-form" action="signup.php" method="post">
+                        <div class="input-container">
+                            <label for="signupEmail">Email/Eメール</label>
+                            <div class="input-icon">
+                                <input type="text" id="signupEmail" placeholder="Enter your email">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <label for="signupTenant">Tenant /テナント</label>
+                            <div class="input-icon">
+                                <input type="text" id="signupTenant" placeholder="Tenant">
+                                <i class="fas fa-building"></i>
+                            </div>
+                        </div>
+
+                        <div class="login-btn">
+                            <a href="dashboard.html" class="login-button">Sign Up / サインアップ</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Model Login form -->
+                <div class="modal-form-container login-form-container" id="loginFormContainer">
+                    <form class="login-form" action="login.php" method="post">
+                        <div class="input-container">
+                            <label for="username">User / ユーザーID</label>
+                            <div class="input-icon">
+                                <input type="text" id="username" placeholder="Username">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <label for="email">Tenant /テナント</label>
+                            <div class="input-icon">
+                                <input type="text" id="tenant" placeholder="Tenant" >
+                                <i class="fas fa-building"></i>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <label for="password">Password / パスワード</label>
+                            <div class="input-icon">
+                                <input type="password" id="password" placeholder="Password">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+
+                        <div class="login-btn">
+                            <a href="dashboard.html" class="login-button">Login / ログイン</a>
+                        </div>
+                        <div onclick="forgotpass();" class="forgot-pw">
+                            <a href="forgot_password.html">Forgot Password / パスワードを忘れた場合 ?</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Model Onetime Form -->
+                <div class="modal-form-container ontime-form-container" id="ontimeFormContainer">
+                    <form class="ontime-form" action="login.php" method="post">
+                        <div class="input-container">
+                            <label for="ontimeEmail">Email/Eメール</label>
+                            <div class="input-icon">
+                                <input type="text" id="ontimeEmail" placeholder="Enter your email">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <label for="phone">Tenant /テナント</label>
+                            <div class="input-icon">
+                                <input type="text" id="phone" placeholder="Tenant">
+                                <i class="fas fa-building"></i>
+                            </div>
+                        </div>
+
+                        <div class="login-btn">
+                            <a href="dashboard.html" class="login-button">Send Code / コードを送信する</a>
+                        </div>
+                    </form>
+                </div>
+                <footer class="modal-card-foot">
+                    <div class="field">
+                        Status/ｽﾃｲﾀｽ : <span id="loginstatus"></span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- .....................Javascript............................ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginButton = document.querySelector(".login-button");
+            const modal = document.getElementById("loginModal");
+            const closeButton = document.getElementById("closeBtn");
+
+            // Model Visibility Function.
+            loginButton.addEventListener("click", function () {
+                modal.style.display = "block"; // Show the modal
+
+                const signupOption = document.getElementById("signupOption");
+                const loginOption = document.getElementById("loginOption");
+                const ontimeOption = document.getElementById("ontimeOption");
+                const signupFormContainer = document.getElementById("signupFormContainer");
+                const loginFormContainer = document.getElementById("loginFormContainer");
+                const ontimeFormContainer = document.getElementById("ontimeFormContainer");
+
+                signupOption.classList.add("active-option");
+                loginOption.classList.remove("active-option");
+                ontimeOption.classList.remove("active-option");
+
+                signupFormContainer.style.display = "block";
+                loginFormContainer.style.display = "none";
+                ontimeFormContainer.style.display = "none";
+            });
+
+            // Close button function
+            closeButton.addEventListener("click", function () {
+                modal.style.display = "none"; // Hide the modal
+            });
+
+            const loginOption = document.getElementById("loginOption");
+            const signupOption = document.getElementById("signupOption");
+            const ontimeOption = document.getElementById("ontimeOption");
+            const loginFormContainer = document.getElementById("loginFormContainer");
+            const signupFormContainer = document.getElementById("signupFormContainer");
+            const ontimeFormContainer = document.getElementById("ontimeFormContainer");
+
+            loginOption.addEventListener("click", function () {
+                loginFormContainer.style.display = "block";
+                signupFormContainer.style.display = "none";
+                ontimeFormContainer.style.display = "none";
+                loginOption.classList.add("active-option");
+                signupOption.classList.remove("active-option");
+                ontimeOption.classList.remove("active-option");
+            });
+
+            signupOption.addEventListener("click", function () {
+                signupFormContainer.style.display = "block";
+                loginFormContainer.style.display = "none";
+                ontimeFormContainer.style.display = "none";
+                signupOption.classList.add("active-option");
+                loginOption.classList.remove("active-option");
+                ontimeOption.classList.remove("active-option");
+            });
+
+            ontimeOption.addEventListener("click", function () {
+                ontimeFormContainer.style.display = "block";
+                loginFormContainer.style.display = "none";
+                signupFormContainer.style.display = "none";
+                ontimeOption.classList.add("active-option");
+                loginOption.classList.remove("active-option");
+                signupOption.classList.remove("active-option");
+            });
+        });
+    </script>
+</body>
+
+</html>

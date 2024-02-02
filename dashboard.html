@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Top Navigation Menu -->
+    <div class="wfptopnav">
+        <div class="wfpicons">
+            <div class="logo-icon">
+                <a href="" style="padding: 13px;"><img src="images/box-icon-img.svg" alt=""></a>
+            </div>
+            <div class="user-section">
+                <!-- user icon -->
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+                <!-- Language Selecting Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="languageDropdown">
+                        <img src="images/us-flag-icon.png" alt="English Flag">
+                    </a>
+                    <div class="dropdown-content" id="languageDropdownContent">
+                        <a href="#" data-lang="en"  style="padding: 8px 15px;">
+                            <img src="images/us-flag-icon.png" alt="English Flag">
+                        </a>
+                        <a href="#" data-lang="ja" style="padding: 8px 15px;">
+                            <img src="images/japan-flag-icon.png" alt="Japanese Flag">
+                        </a>
+                        <a href="#" data-lang="es" style="padding: 8px 15px;">
+                            <img src="images/Spain-flag-icon.png" alt="Spanish Flag">
+                        </a>
+                    </div>
+                </div>
+                <!-- Settings Icon -->
+                <a href=""><i class="fa-solid fa-gear"></i></a>
+                <!-- Logout Icon -->
+                <a href=""><i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        </div>
+    </div>
+ 
+
+
+    <!-- Dashboard Start here -->
+    <div class="container">
+
+        <!-- Dashboard Content Start here -->
+        <div class="dashboard-content">
+
+            <!-- Dashboard Boxes -->
+            <div class="dashboard-box">
+                <h2>Box 1</h2>
+                <p class="content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum
+                    is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+            <div class="dashboard-box">
+                <h2>Box 2</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+            <div class="dashboard-box">
+                <h2>Box 3</h2>
+                <p class="content">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+            <div class="dashboard-box">
+                <h2>Box 4</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+            <div class="dashboard-box">
+                <h2>Box 5</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+            <div class="dashboard-box">
+                <h2>Box 6</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy
+                    text of the printing and typesetting industry.</p>
+            </div>
+
+            <div class="dashboard-box">
+                <h2>Box 7</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy
+                    text of the printing and typesetting industry.</p>
+            </div>
+
+            <div class="dashboard-box">
+                <h2>Box 8</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+            <div class="dashboard-box">
+                <h2>Box 9</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+            </div>
+            <div class="dashboard-box">
+                <h2>Box 10</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy
+                    text of the printing and typesetting industry.</p>
+            </div>
+            <div class="dashboard-box">
+                <h2>Box 11</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+            <div class="dashboard-box">
+                <h2>Box 12</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy
+                    text of the printing and typesetting industry.</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script>
+        // function for language dropdown
+        document.addEventListener("DOMContentLoaded", function () {
+            const languageDropdown = document.querySelector("#languageDropdown");
+            const languageDropdownContent = document.querySelector("#languageDropdownContent");
+            const flags = document.querySelectorAll("#languageDropdownContent a");
+
+            // Add a click event listener to the language dropdown toggle
+            languageDropdown.addEventListener("click", function () {
+                languageDropdownContent.classList.toggle("active");
+            });
+
+            // Add a click event listener to each flag
+            flags.forEach(function (flag) {
+                flag.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    // Get the selected language from the data-lang attribute
+                    const selectedLang = flag.getAttribute("data-lang");
+                    // Update the selected flag
+                    languageDropdown.innerHTML = flag.innerHTML;
+                    // Hide the dropdown
+                    languageDropdownContent.classList.remove("active");
+                    // TODO: Update language settings or perform any other action
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

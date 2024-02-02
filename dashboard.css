@@ -1,0 +1,221 @@
+/* Reset default margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set default font for the body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Styling for the top navigation menu */
+.wfptopnav {
+    overflow: visible;
+    background-color: #000;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    z-index: 2;
+}
+
+.wfpicons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-icon{
+    margin-right: auto;
+}
+
+.logo-icon img{
+    width: 40px;
+}
+
+/* Styles for the user section within icons div */
+.user-section {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.user-section a {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+
+.user-section i {
+    font-size: 20px;
+}
+
+/* Styling for the dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 7%;
+    background-color: #fff;
+    padding: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.dropdown-content.active {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown img {
+    width: 32px; /* Decrease the width */
+    height: auto;
+    margin-right: 2px;
+}
+
+/* Style for the active option */
+.dropdown-content a.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Change style on option hover */
+.dropdown-content a:hover {
+    background-color: #f5f5f5;
+    color: #007bff;
+}
+
+
+/* Styling for top navigation links */
+.wfptopnav .wfpicons a {
+    color: red;
+    padding: 22px;
+    text-decoration: none;
+    font-size: 17px;
+    line-height: 1px;
+    display: block;
+}
+
+.wfptopnav a span {
+    font-size: 1.1rem;
+    margin-left: 0.5em !important;
+}
+
+
+/* Styling for dashboard content */
+.dashboard-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 4rem 20px 15px 20px;
+    position: relative;
+    z-index: 0;
+}
+
+/* Styling for dashboard boxes */
+.dashboard-box {
+    flex: 1 1 calc(33.33% - 20px);
+    background-color: #F7F5FF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #000;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+}
+
+/* Hover effect for dashboard boxes */
+.dashboard-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for box content */
+.dashboard-box h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.dashboard-box p {
+    font-size: 14px;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .dashboard-box {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 568px) {
+    .dashboard-box {
+        flex: 1 1 calc(100% - 20px);
+    }
+}
+
+@media (max-width: 408px) {
+    .wfpicons {
+        padding: 0 5px;
+    }
+
+    .wfptopnav .wfpicons a {
+        padding: 15px;
+    }
+
+    .user-section i {
+        font-size: 21px;
+    }
+}
+
+/* Media queries for smaller font sizes */
+@media (max-width: 340px) {
+    .wfptopnav a span {
+        font-size: 19px;
+    }
+    .wfptopnav .wfpicons a {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 280px) {
+    .wfptopnav a span {
+        font-size: 15px;
+    }
+
+    .user-section i {
+        font-size: 19px;
+    }
+    .wfptopnav .wfpicons a {
+        padding: 5px;
+    }
+
+
+
+}
